@@ -1,9 +1,5 @@
 pragma solidity ^0.4.21;
-/**
- *  계약주소.. 0x818f7c87be06bc0bff43f9ed7e9050bb33d5f008
- *  owner..... 0xb2ccca900309faeb69fedab6e94b9a7c92f922a5
- *  생성시 발행량 뒷자리에 0 18개 붙일것.
- */
+
 import "./EIP20Interface.sol";
 
 
