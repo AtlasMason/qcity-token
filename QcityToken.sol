@@ -1,4 +1,4 @@
-pragma solidity ^0.4.21;
+pragma solidity ^0.4.24;
 
 import "./EIP20Interface.sol";
 
@@ -8,15 +8,10 @@ contract QcityToken is EIP20Interface {
     uint256 constant private MAX_UINT256 = 2**256 - 1;
     mapping (address => uint256) public balances;
     mapping (address => mapping (address => uint256)) public allowed;
-    /*
-    NOTE:
-    The following variables are OPTIONAL vanities. One does not have to include them.
-    They allow one to customise the token contract & in no way influences the core functionality.
-    Some wallets/interfaces might not even bother to look at this information.
-    */
-    string public name;                   //fancy name: eg Simon Bucks
-    uint8 public decimals;                //How many decimals to show.
-    string public symbol;                 //An identifier: eg SBX
+
+string public name;                 
+    uint8 public decimals;          
+    string public symbol;           
 
     constructor(
         string _name,
@@ -24,20 +19,21 @@ contract QcityToken is EIP20Interface {
         uint256 _initAmt,
         uint8 _decimal
     ) public {
-        balances[msg.sender] = _initAmt;               // Give the creator all initial tokens
-        totalSupply = _initAmt;                        // Update total supply
-        name = _name;                                   // Set the name for display purposes
-        decimals = _decimal;                            // Amount of decimals for display purposes
-        symbol = _sym;                               // Set the symbol for display purposes
+        balances[msg.sender] = _initAmt;               
+        totalSupply = _initAmt;                        
+        name = _name;                                  
+        decimals = _decimal;                           
+        symbol = _sym;                               
+    
+        emit Transfer(address(0), msg.sender, totalSupply);        
     }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
-        // Prevent transfer to 0x0 address. Use burn() instead
         require(_to != 0x0);
         require(balances[msg.sender] >= _value);
         balances[msg.sender] -= _value;
         balances[_to] += _value;
-        emit Transfer(msg.sender, _to, _value); //solhint-disable-line indent, no-unused-vars
+        emit Transfer(msg.sender, _to, _value); 
         return true;
     }
 
@@ -49,7 +45,7 @@ contract QcityToken is EIP20Interface {
         if (allowance < MAX_UINT256) {
             allowed[_from][msg.sender] -= _value;
         }
-        emit Transfer(_from, _to, _value); //solhint-disable-line indent, no-unused-vars
+        emit Transfer(_from, _to, _value); 
         return true;
     }
 
@@ -59,7 +55,7 @@ contract QcityToken is EIP20Interface {
 
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowed[msg.sender][_spender] = _value;
-        emit Approval(msg.sender, _spender, _value); //solhint-disable-line indent, no-unused-vars
+        emit Approval(msg.sender, _spender, _value); 
         return true;
     }
 
