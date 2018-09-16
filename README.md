@@ -1,9 +1,10 @@
-# qcity-token
+# Qcity-token
 
 ## Contracts
-source : [
+source : [QcityToken.sol](/qcity/qcity-token/blob/master/QcityToken.sol)
 
 ## Auditing Service
-https://www.coinmercenary.com/assets/img/media/CoinMercenary_colored.png
+![Alt text](/logo-dark.png)
 
 ## Audit Report
+[20180915_Qcity_Audit.pdf](/blob/master/20180915_Qcity_Audit.pdf)
