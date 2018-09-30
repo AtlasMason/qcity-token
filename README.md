@@ -7,4 +7,4 @@ source : [QcityToken.sol](QcityToken.sol)
 ![Alt text](/logo-dark.png)
 
 ## Audit Report
-[20180925_Qcity_Audit.pdf](./20180925_Qcity_Audit.pdf)
+[20180928_Qcity_Audit.pdf](./20180928_Qcity_Audit.pdf)
